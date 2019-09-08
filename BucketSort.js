@@ -2,14 +2,11 @@ function bucketSort(items) {
   //items is unsorted array
 
   //if 0 or 1 item in list: SORTED!
-  if (items.length <= 0) {
-    return items
-  }
+  if (items.length <= 0) { return items }
 
   //per my.GA a good num of buckets is the sqrt of number of items
   //but I can't get it to work.
   let bucketSize =  Math.floor(Math.sqrt(items.length))
-
   let minValue = items[0];
   let maxValue = items[0];
 
@@ -29,11 +26,9 @@ function bucketSort(items) {
   //push items array into arrOfBucks
   for (let i = 0; i < items.length; i++) {
     let buckIndex = Math.floor((items[i] - minValue) / bucketSize)
-    console.log(`itemToBeBucked: ${buckIndex}`);
+    // console.log(`buckIndex: ${buckIndex}`);
     arrOfBucks[buckIndex].push(items[i])
   }
-
-  console.log(`arrOfBucks after push! ::: ${arrOfBucks}`);
 
   //initialize final array
   let totatllySortedArray = []
@@ -49,8 +44,6 @@ function bucketSort(items) {
 }
 
 module.exports = bucketSort;
-
-
 
 // ::::: WAS ATTEMPTING TO USE AVG of VALUES TO SOLVE BUCKET CATEGORIES. ::::
 // const getAvg = (arr) => arr.reduce((a,b) => a+b, 0) / arr.length
